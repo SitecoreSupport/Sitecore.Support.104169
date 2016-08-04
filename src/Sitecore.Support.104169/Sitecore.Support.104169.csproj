@@ -52,10 +52,11 @@
     <Compile Include="RadioListField.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CheckboxListField.cshtml" />
+    <Content Include="Views\Form\EditorTemplates\CheckboxListField.cshtml" />
     <Content Include="lib\Sitecore.Forms.Mvc.dll" />
-    <Content Include="RadioListField.cshtml" />
+    <Content Include="Views\Form\EditorTemplates\RadioListField.cshtml" />
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
