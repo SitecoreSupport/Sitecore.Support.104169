@@ -52,9 +52,13 @@
     <Compile Include="RadioListField.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Views\Form\EditorTemplates\CheckboxListField.cshtml" />
+    <Content Include="Views\Form\EditorTemplates\CheckboxListField.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="lib\Sitecore.Forms.Mvc.dll" />
-    <Content Include="Views\Form\EditorTemplates\RadioListField.cshtml" />
+    <Content Include="Views\Form\EditorTemplates\RadioListField.cshtml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
