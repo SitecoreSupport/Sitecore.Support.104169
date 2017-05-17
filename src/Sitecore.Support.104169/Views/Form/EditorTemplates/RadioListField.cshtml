@@ -10,8 +10,8 @@
     {
         columns = 1;
     }
-    var colMod = Model.Items.Count%columns;
-    var rows = colMod > 0 ? Model.Items.Count/columns + 1 : Model.Items.Count/columns;
+    var colMod = Model.Items.Count % columns;
+    var rows = colMod > 0 ? Model.Items.Count / columns + 1 : Model.Items.Count / columns;
     var index = 0;
     var css = Model.CssClass;
 
@@ -19,11 +19,11 @@
     {
         <div class="@css radio">
             <table class="@css">
-                @for (int col = 0; col < rows; col++)
+                @for (int col = 0; col < columns; col++)
                 {
                     <tr>
                         @{
-                            for (int i = 0; i < columns; i++)
+                            for (int i = 0; i < rows; i++)
                             {
                                 if (Model.Items.Count == index)
                                 {
@@ -32,7 +32,7 @@
                                 <td>
                                     @using (Html.BeginTag("label"))
                                     {
-                                        @Html.RadioButtonFor(x => Model.Value, Model.Items[index].Value, (Model.Items[index].Selected) ? new {Checked = "checked"} : null)
+                                        @Html.RadioButtonFor(x => Model.Value, Model.Items[index].Value, (Model.Items[index].Selected) ? new { Checked = "checked" } : null)
                                         @Model.Items[index].Text
                                     }
                                 </td>
@@ -40,19 +40,19 @@
                             }
                         }
                     </tr>
-                }
+                            }
             </table>
         </div>
-    }
-    else
-    {
-        <div class="@css radio">
-            <table class="@css">
-                @for (int row = 0; row < rows; row++)
-                {
-                    index = row;
-                    <tr>
-                        @for (int column = 1; column <= columns; column++)
+                            }
+                            else
+                            {
+                                <div class="@css radio">
+                                    <table class="@css">
+                                        @for (int row = 0; row < rows; row++)
+                                        {
+                                            index = row;
+                                            <tr>
+                                                @for (int column = 1; column <= columns; column++)
                         {
                             if (index >= Model.Items.Count)
                             {
@@ -60,27 +60,27 @@
                             }
                             <td>
                                 <label>
-                                    @Html.RadioButtonFor(x => Model.Value, Model.Items[index].Value, (Model.Items[index].Selected) ? new {Checked = "checked"} : null)
+                                    @Html.RadioButtonFor(x => Model.Value, Model.Items[index].Value, (Model.Items[index].Selected) ? new { Checked = "checked" } : null)
                                     @Model.Items[index].Text
                                 </label>
                             </td>
 
-                            if (colMod > 0 && column > colMod)
-                            {
-                                index += rows - 1;
-                            }
-                            else
-                            {
-                                if (row == rows - 1 && column >= colMod && colMod > 0)
-                                {
-                                    break;
+                                                    if (colMod > 0 && column > colMod)
+                                                    {
+                                                        index += rows - 1;
+                                                    }
+                                                    else
+                                                    {
+                                                        if (row == rows - 1 && column >= colMod && colMod > 0)
+                                                        {
+                                                            break;
+                                                        }
+                                                        index += rows;
+                                                    }
+                                                }
+                                            </tr>
+                                        }
+                                    </table>
+                                </div>
                                 }
-                                index += rows;
                             }
-                        }
-                    </tr>
-                }
-            </table>
-        </div>
-    }
-}
