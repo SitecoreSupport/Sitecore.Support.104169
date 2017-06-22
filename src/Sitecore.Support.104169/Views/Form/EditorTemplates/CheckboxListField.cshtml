@@ -19,7 +19,7 @@
 
     using (Html.BeginTag("div", () => notInline, new { @class = css + " checkbox" }))
     {
-        if (direction.Equals("Horizontal"))
+        if (!String.IsNullOrEmpty(direction) && direction.Equals("Horizontal"))
         {
             <table class="@css">
                 @for (int col = 0; col < columns; col++)

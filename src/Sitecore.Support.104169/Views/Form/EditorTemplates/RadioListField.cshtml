@@ -15,7 +15,7 @@
     var index = 0;
     var css = Model.CssClass;
 
-    if (direction.Equals("Horizontal"))
+    if (!String.IsNullOrEmpty(direction) && direction.Equals("Horizontal"))
     {
         <div class="@css radio">
             <table class="@css">
